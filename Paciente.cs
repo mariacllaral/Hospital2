@@ -12,7 +12,7 @@ namespace Hospital
         public int idade;
         public string sintoma;
         public string telefone;
-        public bool preferencial;
+        public string preferencial;
 
         public void cadastrarPaciente()
         {
@@ -40,9 +40,36 @@ namespace Hospital
             }
 
             Console.WriteLine("Paciente preferencial? (s/n):");
-            string resp = Console.ReadLine().ToLower();
+            string resp = Console.ReadLine().ToUpper();
+            bool testepref = false;
+            while (testepref == false )
+            {
+                if (resp != "S" && resp != "N")
+                {
 
-            this.preferencial = resp == "s";
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("Informação Inválida digite novamente\n");
+                    Console.ResetColor();
+
+                    Console.WriteLine("Paciente preferencial? (s/n):");
+                    resp = Console.ReadLine().ToUpper();
+
+                }
+                else
+                {
+                    if (resp == "S")
+                    {
+                        this.preferencial = "Sim";
+                        
+                    }
+                    else
+                    {
+                        this.preferencial = "Não";
+                        
+                    }
+                    testepref = true;
+                }
+            }
 
             Console.WriteLine("Telefone com DDD(apenas numeros):");
             Console.WriteLine("EX:11970707070");
@@ -75,11 +102,14 @@ namespace Hospital
 
          
         }
-       // public virtual void mostraDados()
-      //  {
-       //     Console.WriteLine("Seus dados:\n");
-       //     Console.WriteLine("Nome: {0}\nIdade: {1}\nPrefencial: {2}\nTelefone: {3}\nSintoma: {4}", this.nome, this.idade,this.preferencial, this.telefone, this.sintoma);
-       // }
+        public void mostraPaciente()
+        {
+            Console.WriteLine("Nome: " + this.nome);
+            Console.WriteLine("Idade: " + this.idade);
+            Console.WriteLine("Sintomas: " + this.sintoma);
+            Console.WriteLine("Telefone: " + this.telefone);
+            Console.WriteLine("Paciente preferencial? " + this.preferencial);
+        }
     }
 
 }

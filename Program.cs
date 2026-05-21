@@ -13,8 +13,9 @@ namespace Hospital
 
             string op = "";
             Paciente p = new Paciente();
+            Paciente[] fila = new Paciente[100];
 
-            while (op.ToUpper() != "q")
+            while (op.ToUpper() != "Q")
             {
                 Console.WriteLine("--------------------------------------");
                 Console.WriteLine("| Opção desejada                     |");
@@ -30,11 +31,13 @@ namespace Hospital
                 {
                     case "1":
                         p.cadastrarPaciente();
+                        adicionarPaciente(fila, p);
+                        Console.ReadKey();
                         Console.Clear();
                         break;
 
                     case "2":
-                        p.mostraDados();
+                        
                         break;
 
                     case "3":
@@ -52,6 +55,23 @@ namespace Hospital
                         break;
                 }
             }
+        }
+        static void adicionarPaciente(Paciente[] fila, Paciente p)
+        {
+            int i = 0;
+
+            while (i < fila.Length && fila[i] != null)
+            {
+                i++;
+            }
+
+            if (i >= fila.Length)
+            {
+                Console.WriteLine("Fila cheia!");
+                return;
+            }
+            fila[i] = p;
+            Console.WriteLine("Paciente adicionado à fila.");
         }
     }
 }

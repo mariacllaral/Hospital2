@@ -5,3 +5,10 @@ C:\Users\suporte\source\repos\Hospital\bin\Debug\Hospital.exe
 C:\Users\suporte\source\repos\Hospital\bin\Debug\Hospital.pdb
 C:\Users\suporte\source\repos\Hospital\obj\Debug\Hospital.exe
 C:\Users\suporte\source\repos\Hospital\obj\Debug\Hospital.pdb
+C:\Users\washi\source\repos\Hospital2\obj\Debug\Hospital.csproj.AssemblyReference.cache
+C:\Users\washi\source\repos\Hospital2\obj\Debug\Hospital.csproj.CoreCompileInputs.cache
+C:\Users\washi\source\repos\Hospital2\obj\Debug\Hospital.exe
+C:\Users\washi\source\repos\Hospital2\obj\Debug\Hospital.pdb
+C:\Users\washi\source\repos\Hospital2\bin\Debug\Hospital.exe.config
+C:\Users\washi\source\repos\Hospital2\bin\Debug\Hospital.exe
+C:\Users\washi\source\repos\Hospital2\bin\Debug\Hospital.pdb
