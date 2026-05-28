@@ -67,34 +67,14 @@ namespace Hospital
 
             if (i >= fila.Length)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Fila cheia!");
+                Console.ResetColor();
                 return;
             }
             fila[i] = p;
             Console.WriteLine("Paciente adicionado à fila.");
         }
-
-        /*static void listarPaciente(Paciente[] fila)
-        {
-            int i = 0;
-            bool possuiPacientes = false;
-
-            foreach (var pacienteAtual in fila)
-            {
-                // Só exibe se a posição do vetor não estiver vazia (null)
-                if (pacienteAtual != null)
-                {
-                    Console.WriteLine($"Senha {i}: {pacienteAtual.mostraPaciente()}");
-                    possuiPacientes = true;
-                }
-                i++;
-            }
-
-            if (!possuiPacientes)
-            {
-                Console.WriteLine("Não há nenhum paciente na fila no momento.");
-            }
-        }*/
     }
 }
 
