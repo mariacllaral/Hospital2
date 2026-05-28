@@ -12,7 +12,6 @@ namespace Hospital
         {
 
             string op = "";
-            Paciente p = new Paciente();
             Paciente[] fila = new Paciente[100];
 
             while (op.ToUpper() != "Q")
@@ -30,6 +29,7 @@ namespace Hospital
                 switch (op.ToUpper())
                 {
                     case "1":
+                        Paciente p = new Paciente();
                         p.cadastrarPaciente();
                         adicionarPaciente(fila, p);
                         Console.ReadKey();
@@ -41,7 +41,7 @@ namespace Hospital
                         break;
 
                     case "3":
-                        
+
                         break;
 
                     case "Q":
@@ -73,6 +73,28 @@ namespace Hospital
             fila[i] = p;
             Console.WriteLine("Paciente adicionado à fila.");
         }
+
+        /*static void listarPaciente(Paciente[] fila)
+        {
+            int i = 0;
+            bool possuiPacientes = false;
+
+            foreach (var pacienteAtual in fila)
+            {
+                // Só exibe se a posição do vetor não estiver vazia (null)
+                if (pacienteAtual != null)
+                {
+                    Console.WriteLine($"Senha {i}: {pacienteAtual.mostraPaciente()}");
+                    possuiPacientes = true;
+                }
+                i++;
+            }
+
+            if (!possuiPacientes)
+            {
+                Console.WriteLine("Não há nenhum paciente na fila no momento.");
+            }
+        }*/
     }
 }
 

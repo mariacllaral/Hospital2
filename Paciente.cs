@@ -11,7 +11,7 @@ namespace Hospital
         public string nome;
         public int idade;
         public string sintoma;
-        public string telefone;
+        //public string telefone;
         public string preferencial;
 
         public void cadastrarPaciente()
@@ -71,7 +71,7 @@ namespace Hospital
                 }
             }
 
-            Console.WriteLine("Telefone com DDD(apenas numeros):");
+            /*Console.WriteLine("Telefone com DDD(apenas numeros):");
             Console.WriteLine("EX:11970707070");
             string tel = Console.ReadLine();
             while (tel.Length != 11)
@@ -87,7 +87,7 @@ namespace Hospital
             if (tel.Length == 11)
             {
                 this.telefone = tel.Insert(0, "(").Insert(3, ")").Insert(9, "-");
-            }
+            }*/
 
             Console.WriteLine("Quais sintomas o paciente apresenta!");
             this.sintoma = Console.ReadLine();
@@ -96,7 +96,7 @@ namespace Hospital
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Informação Inválida digite novamente\n");
                 Console.ResetColor();
-                Console.WriteLine("Digite seu nome:");
+                Console.WriteLine("Qual sintomas o paciente apresenta!");
                 this.sintoma = Console.ReadLine();
             }
 
@@ -107,7 +107,7 @@ namespace Hospital
             Console.WriteLine("Nome: " + this.nome);
             Console.WriteLine("Idade: " + this.idade);
             Console.WriteLine("Sintomas: " + this.sintoma);
-            Console.WriteLine("Telefone: " + this.telefone);
+            //Console.WriteLine("Telefone: " + this.telefone);
             Console.WriteLine("Paciente preferencial? " + this.preferencial);
         }
     }

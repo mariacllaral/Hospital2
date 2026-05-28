@@ -12,3 +12,11 @@ C:\Users\washi\source\repos\Hospital2\obj\Debug\Hospital.pdb
 C:\Users\washi\source\repos\Hospital2\bin\Debug\Hospital.exe.config
 C:\Users\washi\source\repos\Hospital2\bin\Debug\Hospital.exe
 C:\Users\washi\source\repos\Hospital2\bin\Debug\Hospital.pdb
+C:\Users\lab2095\source\repos\Hospital2\bin\Debug\Hospital.exe.config
+C:\Users\lab2095\source\repos\Hospital2\bin\Debug\Hospital.exe
+C:\Users\lab2095\source\repos\Hospital2\bin\Debug\Hospital.pdb
+C:\Users\lab2095\source\repos\Hospital2\obj\Debug\Hospital.csproj.AssemblyReference.cache
+C:\Users\lab2095\source\repos\Hospital2\obj\Debug\Hospital.exe.config
+C:\Users\lab2095\source\repos\Hospital2\obj\Debug\Hospital.csproj.CoreCompileInputs.cache
+C:\Users\lab2095\source\repos\Hospital2\obj\Debug\Hospital.exe
+C:\Users\lab2095\source\repos\Hospital2\obj\Debug\Hospital.pdb
