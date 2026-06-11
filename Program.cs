@@ -37,11 +37,15 @@ namespace Hospital
                         break;
 
                     case "2":
-                        
+                        // Parte da Listagem
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
 
                     case "3":
-
+                        // Parte do Atendimento
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
 
                     case "Q":
