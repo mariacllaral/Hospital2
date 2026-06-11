@@ -10,10 +10,9 @@ namespace Hospital
     {
         static void Main(string[] args)
         {
-
             string op = "";
             Paciente[] fila = new Paciente[100];
-            // Loop principal do programa, exibindo o menu e processando as opções do usuário.
+ 
             while (op.ToUpper() != "Q")
             {
                 Console.WriteLine("--------------------------------------");
@@ -26,6 +25,7 @@ namespace Hospital
                 Console.Write("| Digite o numero da opção: ");
                 op = Console.ReadLine();
                 Console.WriteLine("--------------------------------------");
+ 
                 switch (op.ToUpper())
                 {
                     case "1":
@@ -35,41 +35,41 @@ namespace Hospital
                         Console.ReadKey();
                         Console.Clear();
                         break;
-
+ 
                     case "2":
-                        // Parte da Listagem
+                        listarPacientes(fila);
                         Console.ReadKey();
                         Console.Clear();
                         break;
-
+ 
                     case "3":
-                        // Parte do Atendimento
+                        atenderPaciente(fila);
                         Console.ReadKey();
                         Console.Clear();
                         break;
-
+ 
                     case "Q":
                         Console.WriteLine("Saindo do sistema...");
                         Environment.Exit(0);
                         break;
-
+ 
                     default:
                         Console.WriteLine("Opção inválida!");
+                        Console.ReadKey();
                         Console.Clear();
                         break;
                 }
             }
         }
-        // Método para adicionar um paciente à fila, considerando a prioridade dos pacientes preferenciais.
+ 
         static void adicionarPaciente(Paciente[] fila, Paciente p)
         {
-            //Contar o número de pacientes atualmente na fila.
             int totalPacientes = 0;
             while (totalPacientes < fila.Length && fila[totalPacientes] != null)
             {
                 totalPacientes++;
             }
-
+ 
             if (totalPacientes >= fila.Length)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -77,41 +77,113 @@ namespace Hospital
                 Console.ResetColor();
                 return;
             }
-            //Verificar se o paciente é preferencial e inserir na posição correta.
-            if (p.preferencial != null && p.preferencial.ToUpper() == "SIM")
+ 
+            if (p.preferencial.ToUpper() == "SIM")
             {
                 int posicaoInsercao = 0;
-
-                // Encontrar a posição correta para inserir o paciente preferencial, garantindo que ele fique à frente dos pacientes não preferenciais.
+ 
                 while (posicaoInsercao < totalPacientes &&
-                       fila[posicaoInsercao].preferencial != null &&
                        fila[posicaoInsercao].preferencial.ToUpper() == "SIM")
                 {
                     posicaoInsercao++;
                 }
-
-                // Deslocar os pacientes não preferenciais para a direita para abrir espaço para o paciente preferencial.
+ 
                 for (int j = totalPacientes; j > posicaoInsercao; j--)
                 {
                     fila[j] = fila[j - 1];
                 }
-                // Inserir o paciente preferencial na posição correta.
+ 
                 fila[posicaoInsercao] = p;
-                }
-            // se o paciente não for preferencial, ele é adicionado ao final da fila.
+            }
             else
             {
-
+                fila[totalPacientes] = p;
             }
-                {
-                    fila[totalPacientes] = p;
-                }
-
+ 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"\nPaciente {p.nome} adicionado à fila com sucesso!");
+            Console.WriteLine("\nPaciente " + p.nome + " adicionado à fila com sucesso!");
             Console.ResetColor();
+        }
+ 
+        static void listarPacientes(Paciente[] fila)
+        {
+            int total = contarPacientes(fila);
+ 
+            if (total == 0)
+            {
+                Console.WriteLine("Não há pacientes na fila.");
+                return;
+            }
+ 
+            Console.WriteLine("=== LISTA DE PACIENTES (" + total + " na fila) ===");
+            Console.WriteLine();
+ 
+            for (int i = 0; i < fila.Length; i++)
+            {
+                if (fila[i] != null)
+                {
+                    if (fila[i].preferencial.ToUpper() == "SIM")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("--- Paciente " + (i + 1) + " [PREFERENCIAL] ---");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.WriteLine("--- Paciente " + (i + 1) + " ---");
+                    }
+                    fila[i].mostraPaciente();
+                    Console.WriteLine();
+                }
+            }
+        }
+ 
+        static void atenderPaciente(Paciente[] fila)
+        {
+            int total = contarPacientes(fila);
+ 
+            if (total == 0)
+            {
+                Console.WriteLine("Não há pacientes na fila para atender.");
+                return;
+            }
+ 
+            for (int i = 0; i < fila.Length; i++)
+            {
+                if (fila[i] != null)
+                {
+                    if (fila[i].preferencial.ToUpper() == "SIM")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("=== ATENDENDO PACIENTE PREFERENCIAL ===");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("=== ATENDENDO PRÓXIMO PACIENTE ===");
+                        Console.ResetColor();
+                    }
+ 
+                    fila[i].mostraPaciente();
+                    fila[i] = null;
+                    Console.WriteLine();
+                    Console.WriteLine("Paciente atendido e removido da fila.");
+                    Console.WriteLine("Pacientes restantes na fila: " + contarPacientes(fila));
+                    return;
+                }
+            }
+        }
+ 
+        static int contarPacientes(Paciente[] fila)
+        {
+            int total = 0;
+            for (int i = 0; i < fila.Length; i++)
+            {
+                if (fila[i] != null)
+                    total++;
+            }
+            return total;
         }
     }
 }
-
-
